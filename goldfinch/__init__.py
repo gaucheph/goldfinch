@@ -2,7 +2,7 @@ import string
 import sys
 import unicodedata
 
-def validFileName(inputName, space="underscore", initCap=True, ascii=True):
+def validFileName(*inputName, space="underscore", initCap=True, ascii=True):
     """
     Use to remove invalid filename characters like '<>:"/\|?*'
     inputName = string or unicode object.
@@ -23,6 +23,9 @@ def validFileName(inputName, space="underscore", initCap=True, ascii=True):
             print("Warning: The only valid argument values for ascii is either True or False. "
                   "Default value True will be used instead of the '{}' you passed".format(ascii))
             strict=False
+
+        if isinstance(inputName, tuple):
+            inputName = ' '.join(inputName)
        
     
         if sys.version_info[0] == 2:
@@ -107,3 +110,6 @@ def validFileName(inputName, space="underscore", initCap=True, ascii=True):
         errMsg = 'Accepted input is str or unicode, you passed a {}'.format(type(inputName))
         print(errMsg)
         return
+
+
+
