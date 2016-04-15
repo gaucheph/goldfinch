@@ -110,6 +110,3 @@ def validFileName(*inputName, space="underscore", initCap=True, ascii=True):
         errMsg = 'Accepted input is str or unicode, you passed a {}'.format(type(inputName))
         print(errMsg)
         return
-
-
-
